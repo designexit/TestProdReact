@@ -15,9 +15,13 @@ const ApiListCss = styled.div`
     padding-left: 1rem;
     padding-right: 1rem;
   }
-`
 
-
+  h1 {
+    font-size: 2rem;
+    text-align: center;
+    color: #46298e;
+  }
+`;
 
 const ApiList = ({ category }) => {
   const [articles, setArticles] = useState(null);
@@ -28,16 +32,14 @@ const ApiList = ({ category }) => {
       setLoading(true);
       try {
         // 카테고리별로, url 주소 변경하기.
-        const query = category === 'all' ? '' : `&category=${category}`;
+        //const query = category === 'all' ? '' : `&category=${category}`;
         const response = await axios.get(
-          `https://apis.data.go.kr/6260000/FestivalService/getFestivalKr?serviceKey=RLYMOl/sY2UzEa9ZtGd074Ll0fGRry8cSzp2iqOdc6a6iVTHaOjceKdhlJo2OpuTkySx3jtnkMJbJkpDoHJBxw==&pageNo=1&numOfRows=100&resultType=json`
+          `https://apis.data.go.kr/6260000/FestivalService/getFestivalKr?serviceKey=RLYMOl/sY2UzEa9ZtGd074Ll0fGRry8cSzp2iqOdc6a6iVTHaOjceKdhlJo2OpuTkySx3jtnkMJbJkpDoHJBxw==&pageNo=1&numOfRows=100&resultType=json`,
         );
         setArticles(response.data.getFestivalKr.item);
 
-
         //console.log(response.data)
         // 해당 주소를 입력해서, 모델링 조사할 때, 이미 구조를 다 봤음.
-
       } catch (e) {
         console.log(e);
       }
@@ -47,19 +49,19 @@ const ApiList = ({ category }) => {
     resultData();
   }, [category]);
 
-  if (loading){
-    return<ApiListCss>데이터 받는중(대기중 ....)</ApiListCss>
+  if (loading) {
+    return <ApiListCss>데이터 받는중(대기중 ....)</ApiListCss>;
   }
   // 데이터를 못받아 왔을 경우, 화면에 아무것도 안그리기.
   if (!articles) {
     return null;
   }
 
-
   return (
     <ApiListCss>
-      {articles.map((article) => (
-        < PublicItems key={article.MAIN_IMG_THUMB} article={article} />
+      <h1>Busan Festival</h1>
+      {articles.map(article => (
+        <PublicItems key={article.MAIN_IMG_THUMB} article={article} />
       ))}
     </ApiListCss>
   );
