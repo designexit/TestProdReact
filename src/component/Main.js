@@ -138,6 +138,9 @@ const Main = () => {
           <div>
             <Button title="contextAPITest2" onClick={() => navigate("/contextAPITest2")} type='primary'>contextAPITest Main</Button>
           </div>
+          <div>
+            <Button title="ApiBusanFestival" onClick={() => navigate("/ApiBusanFestival")} type='primary'>ApiBusanFestival</Button>
+          </div>
 
         </Container>
       </Wrapper>

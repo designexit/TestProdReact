@@ -4,10 +4,7 @@ import { Button } from 'antd';
 import React, { useRef } from 'react';
 import styled from "styled-components"
 
-
 const RefPracticeScrollTest = () => {
-  //box영역을 선택하기 위한 ref설정
-  //hooks useRef함수 이용
   const box = useRef(null);
   const StyleBox = styled.div`
   border:1px solid black;
@@ -21,11 +18,6 @@ const RefPracticeScrollTest = () => {
   width: 100%;
   background: linear-gradient(aqua, coral);
   `;
-
-
-
-
-
 
   return (
     <div>

@@ -26,6 +26,8 @@ import MainNews from './ch13-API_PublicDataTest/component/MainNews';
 import NewsPage from './ch13-API_PublicDataTest/page/NewsPage';
 import TestColorBox from './ch14-contextAPITest/TestColorBox';
 import TestColorMain from './ch14-contextAPITest/TestColorMain'
+import ApiList from './MK-ReactTest/component/ApiList';
+
 
 function App() {
   return (
@@ -61,6 +63,7 @@ function App() {
         <Route path="newsPageTest/:category" element={<NewsPage />} />
         <Route path="contextAPITest" element={<TestColorBox/>} />
         <Route path="contextAPITest2" element={<TestColorMain/>} />
+        <Route path="ApiBusanFestival" element={<ApiList/>} />
       </Routes>
       
       <div className="App">
