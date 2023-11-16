@@ -5,7 +5,7 @@ import TodoInsert from './TodoInsert';
 
 import TodoList from './TodoList';
 
-const Main_css = styled.div`
+const MainCss = styled.div`
   margin: 0;
   padding: 0;
   background: #e9ecef;
@@ -72,12 +72,12 @@ const TodoMain = () => {
   );
 
   return (
-    <Main_css>
+    <MainCss>
       <TodoBase>
         <TodoInsert onInsert={onInsert} />
         <TodoList todos={todos} onRemove={onRemove} onToggle={onToggle} />
       </TodoBase>
-    </Main_css>
+    </MainCss>
   );
 };
 
