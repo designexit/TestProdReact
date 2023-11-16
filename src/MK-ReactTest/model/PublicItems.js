@@ -7,6 +7,8 @@ import styled from 'styled-components';
 const NewsItemCss = styled.div`
   display: flex;
   margin-top: 5rem;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #a396c3;
 
   .thumbnail {
     margin-right: 1.5rem;
@@ -21,6 +23,7 @@ const NewsItemCss = styled.div`
 
   .contents {
     h2 {
+      width: 100%;
       flex-grow: 1;
       margin: 0;
       color: #46298e;
