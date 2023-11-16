@@ -1,0 +1,15 @@
+//변수 색 선언
+$red: #fa5252;
+$blue: #526bfa;
+$green: rgb(47, 217, 180);
+$orange: #f17020;
+$violet: #6933b0;
+$yellow: #f4e259;
+$navy: #282184;
+
+//재사용할 함수
+@mixin square($size) {
+  $caculated: 32px * $size;
+  width: $caculated;
+  height: $caculated;
+}
