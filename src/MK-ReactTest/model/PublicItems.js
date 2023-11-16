@@ -7,8 +7,12 @@ import styled from 'styled-components';
 const NewsItemCss = styled.div`
   display: flex;
   margin-top: 5rem;
-  padding-bottom: 30px;
+  padding: 30px 50px 60px;
   border-bottom: 1px solid #a396c3;
+
+  &:nth-child(even) {
+    background: #f8f9fa;
+  }
 
   .thumbnail {
     margin-right: 1.5rem;
@@ -22,9 +26,9 @@ const NewsItemCss = styled.div`
   }
 
   .contents {
+    width: 100%;
+    flex-grow: 1;
     h2 {
-      width: 100%;
-      flex-grow: 1;
       margin: 0;
       color: #46298e;
     }
@@ -71,7 +75,8 @@ const NewsItemCss = styled.div`
   // & + & : 형제 연산자, 요소의 이웃, 같은 요소를 나열 시.
   //
   & + & {
-    margin-top: 3rem;
+    padding-top: 3rem;
+    margin-top: 0;
   }
 `;
 
