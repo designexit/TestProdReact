@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 //자식
 import Join from './component/Join';
@@ -12,8 +11,6 @@ import InfoTestUseEffect from './ch8-hookstest/InfoTestUseEffect';
 import CountUseReducerTest from './ch8-hookstest/CountUseReducerTest';
 import AverageUseMemoTest from './ch8-hookstest/AverageUseMemoTest';
 import AverageUseCallback from './ch8-hookstest/AverageUseCallback'
-import { Button, Space, DatePicker, version } from 'antd';
-//페이지 이동을 위한 설정
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import InfoTestUseReducer from './ch8-hookstest/InfoTestUseReducer';
 import AverageUseRefTest from './ch8-hookstest/AverageUseRefTest';

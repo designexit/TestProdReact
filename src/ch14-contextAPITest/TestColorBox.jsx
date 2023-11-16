@@ -3,28 +3,14 @@ import React, { useContext } from "react";
 // 전역 속성 가져오기
 import ColorContext from "./TestColor";
 //예시2
-import { ColorConsumer } from "./TestColor";
-
 //전역에서 설정한 속성 가져오기.
 // Consumer 라는 속성을 이용해서, 전역의 값을 사용하기.
 const TestColorBox = () => {
   //훅스로 더 쉽게, 전역의 값 이용하게.
-  const { state, actions } = useContext(ColorContext);
+  const { state } = useContext(ColorContext);
   return (
     <div>
-      {/* Consumer 속성 이용해서 */}
-      {/* 예시1 */}
-      {/* <ColorContext.Consumer> */}
-      {/* 예시2 */}
-      {/* <ColorConsumer> */}
-      {/* 값가져오기  children 부분에 값의 형태가 아니라 
-        함수 형태로 사용중. child as Function */}
-      {/* 예시1
-        {(value) => ( */}
-      {/* 예시2 */}
       {
-        // ({ state }) => (
-        // 예시3, 함수형 컴포넌트 훅스로 useContext 로 쉽게 전역 값 사용하기
         <div>
           <div
             style={{
@@ -67,7 +53,7 @@ const TestColorBox = () => {
         </div>
         // )
       }
-      {/* </ColorConsumer> */}
+      
     </div>
   );
 };

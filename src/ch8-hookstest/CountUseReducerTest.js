@@ -1,4 +1,4 @@
-import { Button, Switch } from 'antd';
+import { Button } from 'antd';
 import React, { useReducer } from 'react';
 
 //설정1, 리듀서 함수 만들기.

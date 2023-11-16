@@ -1,14 +1,7 @@
-import { Button } from 'antd';
 import React, { useCallback, useState } from 'react';
 import { IoMdAddCircleOutline } from 'react-icons/io';
 import styled from 'styled-components';
 
-// 아이콘 가지고 올 이름
-// io IoMdAddCircleOutline
-// css
-// 1.FormCss
-// 2. FormInputCss
-// 3. FormButtonCss
 const FormCss = styled.form`
   display: flex;
   background: white;
@@ -66,12 +59,6 @@ const TodoInsert = ({ onInsert }) => {
     },
     [onInsert, value],
   );
-
-  // 뭔가 추가를 할 때, onClick 이라는 이벤트 핸들러 추가하고,
-  // 또한, onKeyPress 라는 핸들러도 추가를 했음.
-  // 그런데,
-  // onSubmit 속성으로 구성을 하면, input 에서 값을 입력 후, 그냥 엔터를 해도
-  // 입력이 됨.
 
   return (
     // 적용하기. 넘어온 함수 이벤트 부분 적용하기

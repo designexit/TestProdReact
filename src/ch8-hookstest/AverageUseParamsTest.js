@@ -1,5 +1,5 @@
 import { Button } from 'antd';
-import React, { useCallback, useMemo, useState, useRef, useParams } from 'react';
+import React, { useCallback, useMemo, useState, useRef} from 'react';
 
 //샘플함수 : 특전 연산하는 과정을 샘플로 만들고 useMemo를 사용하기 전, 후 과정 보기
 const doAverage = numbers => {

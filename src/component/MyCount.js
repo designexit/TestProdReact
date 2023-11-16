@@ -1,14 +1,9 @@
-//함수형 컴포넌트
-// +1, -1 은 동일하고 state 구현방법이 좀 다름
-//useState 라는 hooks를 미리 사용
-
-
 import React, { useState } from 'react';
 
 const MyCount = () => {
   //state를 할당하는 부분 -> useState사용
   const [number, setNumber] = useState(0);
-  const [anotherNumber, setAnotherNumber] = useState('');
+  const [anotherNumber] = useState('');
   //useState의 결과값 타입이 배열
   // useState(0); -> 초기값은 0 (안하고 싶으면 useState(' ');)
   return (
@@ -20,9 +15,6 @@ const MyCount = () => {
         onClick={() => {
           setNumber({ number: number + 1 });
 
-          // 값이 2씩 증가 -> 바로 반영이 안됨 
-          // this.setState({number : this.state.number + 1});
-          // 해결책으로 객체 대신에 함수로 대체
           setNumber((prevState) => {
             return {
               number : prevState.number + 1,

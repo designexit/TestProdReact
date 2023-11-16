@@ -20,22 +20,10 @@ const NewsListCss = styled.div`
   }
 `;
 
-// 더미 데이터
-const sampleArticle = {
-  title: '제목',
-  description: '내용',
-  url: 'https://www.naver.com',
-  urlToImage: 'https://via.placeholder.com/160',
-};
-
 const NewsList = ({ category }) => {
-  // useEffect 이용해서, 마운트시, 최초 1회 데이터 받아오기.
-  // create, update, delete 없어서,
-  // 단순, 데이터 만 가져오기 때문에,
-  // REST API 서버에서 데이터를 다 받으면, articles 에 넣기.
+
   const [articles, setArticles] = useState(null);
-  // 만약, 데이터를 받고 있는 중이면, loading 값을 true,
-  // 데이터를 다 받으면, loading 값을 false 로 변경하기.
+
   const [loading, setLoading] = useState(false);
 
   //상태변수, 뉴스(0), 공공데이터(1,2)에 따라서
@@ -136,46 +124,27 @@ const NewsList = ({ category }) => {
             // 상태변수, 타입 지정.
             setDatatype(2);
             break;
-            case "&category=busanFestival":
-            // 부산축제 API 주소, busanFestival
-            const response5 = await axios.get(
-              `https://apis.data.go.kr/6260000/FestivalService/getFestivalKr?serviceKey=RLYMOl/sY2UzEa9ZtGd074Ll0fGRry8cSzp2iqOdc6a6iVTHaOjceKdhlJo2OpuTkySx3jtnkMJbJkpDoHJBxw==&pageNo=1&numOfRows=100&resultType=json`
-            );
-            setArticles(response5.data.getFestivalKr.item);
-            // 상태변수, 타입 지정.
-            setDatatype(3);
-            break;
           default:
             alert("카테고리를 선택해주세요.");
         }
 
-        //console.log(response.data)
-        // 해당 주소를 입력해서, 모델링 조사할 때, 이미 구조를 다 봤음.
-        // setArticles(response.data.articles);
+
       } catch (e) {
         console.log(e);
       }
       setLoading(false);
-    }; // resultData async 함수 블록 끝부분,
-    // 비동기 함수 만들어서, 사용하기.
+    }; 
     resultData();
-    // category 의 값에 따라서 새로운 함수를 생성함.
-  }, [category]); //의존성 배열 부분의 모양은 빈배열, 최초 1회 마운트시 한번만 호출.
-
-  // 주의사항, 데이터 널 체크하기.
+ 
+  }, [category]); 
   if (loading) {
     return <NewsListCss>데이터 받는중(대기중 ....)</NewsListCss>;
   }
 
-  // 데이터를 못받아 왔을 경우, 화면에 아무것도 안그리기.
   if (!articles) {
     return null;
   }
 
-  // 로딩도 끝나고, 받아온 데이터가 존재 한다면, 그때 그리기.
-
-  // 각 화면을 그리기 위한, 하나의 함수를 만들었음.
-  // datatype 에따라서, 렌더링을 다르게 했음.
   const choosePage = ({ articles }) => {
     switch (datatype) {
       case 0:
@@ -210,17 +179,6 @@ const NewsList = ({ category }) => {
   return (
     <NewsListCss>
       {choosePage({ articles })}
-      {/* {articles.map((article) => (
-        // 부모 컴포넌트 : NewList -> 자식 컴포넌트 NewsItem에게 props 로 속성을 전달.
-        // article={article} , 하나의 기사의 내용을 통째로 전달.
-
-        <NewsItem key={article.url} article={article} />
-      ))} */}
-      {/* <NewsItem article={sampleArticle} />
-      <NewsItem article={sampleArticle} />
-      <NewsItem article={sampleArticle} />
-      <NewsItem article={sampleArticle} />
-      <NewsItem article={sampleArticle} /> */}
     </NewsListCss>
   );
 };
