@@ -4,23 +4,29 @@ import axios from 'axios';
 import PublicItems from '../model/PublicItems';
 
 // css
+const Heading = styled.h1`
+  width:100%;
+  margin: 0;
+  padding: 20px 0;
+  font-size: 2.5rem;
+  text-align: center;
+  color: #fff;
+  background-color: #46298e;
+`
+
 const ApiListCss = styled.div`
   box-sizing: border-box;
   padding-bottom: 3rem;
-  width: 768px;
+  width: 100%;
   margin: 0 auto;
   margin-top: 2rem;
+  padding: 0 10%;
   @media screen and (max-width: 768px) {
     width: 100%;
     padding-left: 1rem;
     padding-right: 1rem;
   }
 
-  h1 {
-    font-size: 2rem;
-    text-align: center;
-    color: #46298e;
-  }
 `;
 
 const ApiList = ({ category }) => {
@@ -58,12 +64,15 @@ const ApiList = ({ category }) => {
   }
 
   return (
-    <ApiListCss>
-      <h1>Busan Festival</h1>
-      {articles.map(article => (
-        <PublicItems key={article.MAIN_IMG_THUMB} article={article} />
-      ))}
-    </ApiListCss>
+    <div>
+      <Heading>Busan Festival</Heading>
+      <ApiListCss>
+        {articles.map(article => (
+          <PublicItems key={article.MAIN_IMG_THUMB} article={article} />
+        ))}
+      </ApiListCss>
+    </div>
+    
   );
 };
 

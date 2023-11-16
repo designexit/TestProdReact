@@ -6,9 +6,10 @@ import styled from 'styled-components';
 
 const NewsItemCss = styled.div`
   display: flex;
+  margin-top: 5rem;
 
   .thumbnail {
-    margin-right: 1rem;
+    margin-right: 1.5rem;
 
     img {
       display: block;
@@ -20,10 +21,19 @@ const NewsItemCss = styled.div`
 
   .contents {
     h2 {
+      flex-grow: 1;
       margin: 0;
-      a {
-        color: blue;
-      }
+      color: #46298e;
+    }
+    h3 {
+      margin: 0.5rem 0 1rem;
+      color: #888;
+      font-weight: 500;
+    }
+
+    ul, li {
+      margin: 0;
+      padding: 0;
     }
 
     p {
@@ -31,6 +41,25 @@ const NewsItemCss = styled.div`
       line-height: 1.5;
       margin-top: 0.5rem;
       white-space: normal;
+    }
+
+    .itemSubInfo {
+      padding-top: 0.5rem;
+      border-top: 1px dashed #c3bad9;
+    }
+
+    .itemSubInfo li {
+      display: flex;
+      flex-wrap: nowrap; 
+    }
+    .itemSubInfo li p:first-child {
+      flex-shrink:0;
+      width: 100px;
+      font-weight: 600;
+    }
+    .itemSubInfo li p + p {
+      flex-grow: 1;
+      padding-left: 26px;
     }
   }
 
@@ -46,7 +75,7 @@ const NewsItemCss = styled.div`
 const PublicItems = ({ article }) => {
   // article : 각 기사의 내용을 담은 객체.
   // 비구조화 할당으로 각 각 할당.
-  const { MAIN_TITLE, CNTCT_TEL, ADDR1, MAIN_IMG_THUMB } = article;
+  const { MAIN_IMG_THUMB, MAIN_TITLE, TITLE, USAGE_DAY_WEEK_AND_TIME, CNTCT_TEL, TRFC_INFO,  } = article;
   return (
     <NewsItemCss>
       {/* 조건부 렌더링으로 출력하기.  */}
@@ -62,8 +91,21 @@ const PublicItems = ({ article }) => {
       )}
       <div className="contents">
         <h2>{MAIN_TITLE}</h2>
-        <p>주소 : {ADDR1}</p>
-        <p>연락처 : {CNTCT_TEL}</p>
+        <h3>{TITLE}</h3>
+        <ul className='itemSubInfo'>
+          <li>
+            <p>일시 </p>
+            <p>{USAGE_DAY_WEEK_AND_TIME}</p>
+          </li>
+          <li>
+            <p>연락처 </p>
+            <p>{CNTCT_TEL}</p>
+          </li>
+          <li>
+            <p>교통정보 </p>
+            <p>{TRFC_INFO}</p>
+          </li>
+        </ul>
       </div>
     </NewsItemCss>
   );
